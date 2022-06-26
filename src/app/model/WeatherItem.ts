@@ -1,5 +1,5 @@
-import {WeatherMain} from "./WeatherMain";
-import {Weather} from "./Weather";
+import { WeatherMain } from './WeatherMain';
+import { Weather } from './Weather';
 
 export interface WeatherItem {
     main?: WeatherMain;

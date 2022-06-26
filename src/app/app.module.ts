@@ -4,16 +4,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './component/parent/parent.component';
 import { WeatherService } from './service/weather.service';
-import { FiveDayWeather } from './component/five-day-weather/five-day.component';
-import { SingleDayWeather } from './component/single-day-weather/single-day.component';
-import { WeatherOptions } from './component/weather-options/weather-options.component';
+import { FiveDayWeatherComponent } from './component/five-day-weather/five-day.component';
+import { SingleDayWeatherComponent } from './component/single-day-weather/single-day.component';
+import { WeatherOptionsComponent } from './component/weather-options/weather-options.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FiveDayWeather,
-    SingleDayWeather,
-    WeatherOptions
+    FiveDayWeatherComponent,
+    SingleDayWeatherComponent,
+    WeatherOptionsComponent
   ],
   imports: [
     BrowserModule,
