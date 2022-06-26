@@ -1,0 +1,26 @@
+
+<div class="container-flex">
+  <div class="grid-container">
+
+    <div class="grid-item">
+      <single-day-weather [dayWeather]="weatherItems[0]"></single-day-weather>
+    </div>
+    <div class="grid-item">
+      <single-day-weather [dayWeather]="weatherItems[1]"></single-day-weather>
+    </div>
+    <div class="grid-item">
+      <single-day-weather [dayWeather]="weatherItems[2]"></single-day-weather>
+    </div>
+    <div class="grid-item">
+      <single-day-weather [dayWeather]="weatherItems[3]"></single-day-weather>
+    </div>
+    <div class="grid-item">
+      <single-day-weather [dayWeather]="weatherItems[4]"></single-day-weather>
+    </div>
+    <div class="grid-item">
+      <weather-options
+        (newLocationEvent)="onLocationSelected($event)"
+      ></weather-options>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="single-day-weather">
+  <select (change)="onCountrySelect($event)">
+    <option 
+    *ngFor="let country of COUNTRIES" value="{{country.code}}">{{country.name}}
+  </select>
+  <select (change)="onCitySelect($event)">
+    <option *ngFor="let city of citiesForCountry" value="{{city.name}}">{{city.name}}
+  </select>
+</div>
