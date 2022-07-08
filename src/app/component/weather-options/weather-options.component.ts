@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import CITIES from '../../constants/city.list.json';
 import COUNTRIES from '../../constants/CountryCodes.json';
 
 @Component({
@@ -11,20 +10,14 @@ export class WeatherOptionsComponent {
 
   @Output() newLocationEvent = new EventEmitter<string>();
 
-
-  public CITIES_LIST: { name: string, country: string }[] = CITIES;
   public COUNTRIES: { name: string, code: string }[] = COUNTRIES;
-  citiesForCountry: { name: string, country: string }[] = []
 
   selectedCountry: string
   selectedCity: string
 
   constructor() {
-    this.citiesForCountry = this.CITIES_LIST
-      .filter(e => e.country === COUNTRIES[0].code)
-      .sort((a, b) => a.name.localeCompare(b.name));
     this.selectedCountry = this.COUNTRIES[0].code;
-    this.selectedCity = this.citiesForCountry[0].name;
+    this.selectedCity = '';
   }
 
   onCountrySelect(event: any) {
@@ -32,10 +25,7 @@ export class WeatherOptionsComponent {
       return;
     }
     this.selectedCountry = event.target.value;
-    this.citiesForCountry = this.CITIES_LIST
-      .filter(e => e.country === event.target.value)
-      .sort((a, b) => a.name.localeCompare(b.name));
-    this.selectedCity = this.citiesForCountry[0].name;
+    this.selectedCity = '';
     this.newLocationEvent.emit(`${this.selectedCity},${this.selectedCountry}`);
   }
 

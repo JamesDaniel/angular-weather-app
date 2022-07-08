@@ -7,7 +7,7 @@ export class WeatherService {
 
     constructor(private http: HttpClient) {}
 
-    getFiveDayWeatherComponent(location: string) {
+    getFiveDayWeather(location: string) {
       return this.http.get<WeatherResponse>(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=377453ea6963542d2b4896b9ec7a9aca`);
     }
 }

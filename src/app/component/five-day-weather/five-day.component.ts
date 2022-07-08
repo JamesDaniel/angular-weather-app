@@ -18,21 +18,22 @@ export class FiveDayWeatherComponent {
     if (!$event) {
       return;
     }
-    this.weatherService.getFiveDayWeatherComponent($event)
-      .subscribe((data: WeatherResponse) => {
-        const days = new Set();
-        if (data.list) {
-          for (const d of data.list) {
-            // console.log(d.dt_txt);
-            days.add(d.dt_txt?.split(' ')[0]);
-          }
-        }
+    this.weatherService.getFiveDayWeather($event)
+      .subscribe(this.processWeatherData);
+  }
 
-        const weatherList = Array.from(days).map(e => {
-          return data.list?.find(el => el.dt_txt?.split(' ')[0] === e)
-        }) as WeatherItem[]
+  processWeatherData = (data: WeatherResponse) => {
+    const days = new Set();
+    if (data.list) {
+      for (const d of data.list) {
+        days.add(d.dt_txt?.split(' ')[0]);
+      }
+    }
 
-        this.weatherItems = weatherList;
-      });
+    const weatherList = Array.from(days).map(e => {
+      return data.list?.find(el => el.dt_txt?.split(' ')[0] === e)
+    }) as WeatherItem[]
+
+    this.weatherItems = weatherList;
   }
 }
